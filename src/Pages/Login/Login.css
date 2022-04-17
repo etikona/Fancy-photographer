@@ -15,3 +15,10 @@ background-color: #EEEEEE;
     box-shadow: inset 25px 25px 50px #b5bdc4,
                 inset -25px -25px 50px #f5ffff;
 }
+.error-msg{
+    color: red;
+}
+
+a {
+    text-decoration: none;
+}
