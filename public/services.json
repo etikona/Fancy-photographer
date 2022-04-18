@@ -1,0 +1,24 @@
+[
+    {
+      "id": "625d0e55a5daed5ae87ab24d",
+      "price": "$1000",
+      "img": "https://cdn.pixabay.com/photo/2014/09/13/04/59/couple-443600_1280.jpg",
+      "name": "Wedding photography",
+      "description": "I am not the wedding photographer for couples looking for a fairy tale. I am not the wedding photographer for couples looking for a light and airy dreamscape or a day that feels like a photo shoot. I'm the wedding photographer for you if you value moments and the beauty of your everyday life."
+    },
+    {
+      "id": "625d0e55bb089d58130b6f1c",
+      "price": "$800",
+      "img": "https://cdn.pixabay.com/photo/2021/07/15/07/50/newborn-6467761_1280.jpg",
+      "name": "Protrait photography",
+      "description": "Photography is the art style of having someone’s photograph taken or painting made known by famous portrait photographers. And it has prevailed through generations and continues to push boundaries till this modern age."
+    },
+    {
+      "id": "625d0e55c3b688e71d31bb49",
+      "price": "$500",
+      "img": "https://cdn.pixabay.com/photo/2013/11/28/10/02/camera-219958_1280.jpg",
+      "name": "Normal photography",
+      "description": "Photography is the art of capturing light with a camera, usually via a digital sensor or film, to create an image. With the right camera equipment, you can even photograph wavelengths of light invisible to the human eye, including UV, infrared, and radio."
+    }
+ 
+  ]

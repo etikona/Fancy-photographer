@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './Login.css';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [userInfo, setUserInfo] = useState({
@@ -15,12 +17,15 @@ const Login = () => {
         password: "",
         other: ""
     })
+    // Email & Password login
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         hookError,
     ] = useSignInWithEmailAndPassword(auth);
+
+
 
     // Email
     const handleEmail = (e) => {
@@ -37,7 +42,7 @@ const Login = () => {
     }
     // Password 
     const handlePassword = (e) => {
-        const passwordRegax = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        const passwordRegax = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
         const validPassword = passwordRegax.test(e.target.value);
         if (validPassword) {
             setUserInfo({ ...userInfo, password: e.target.value })
@@ -45,7 +50,7 @@ const Login = () => {
         }
         else {
             setErrors({ ...errors, password: "wrong password" });
-            setUserInfo({ ...errors, password:"" })
+            setUserInfo({ ...userInfo, password: "" })
         }
 
     }
@@ -54,9 +59,29 @@ const Login = () => {
         e.preventDefault();
         signInWithEmailAndPassword(userInfo.email, userInfo.password);
     }
-    useEffect( ()=>{
-        console.log(hookError)
+    useEffect(() => {
+        if (hookError) {
+            if (hookError?.code === "auth/invalid-email") {
+                toast("Please provide a valid email")
+            }
+            else if (hookError?.code === "auth/invalid-password") {
+                toast("please type correct password")
+            }
+            else if (hookError?.code === "auth/missing-email") {
+                toast("set your email")
+            }
+        }
     }, [hookError])
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+    useEffect(() => {
+        if (user) {
+
+            navigate(from)
+        }
+    }, [user])
 
     return (
         <div>
@@ -73,7 +98,8 @@ const Login = () => {
                     <button className='btn btn-dark mt-3 w-75' type="submit">Login</button>
                     <p> <Link to="/signin">Sign in first</Link></p>
                     {/* {error && <p className='error-msg'>{error}</p>} */}
-                    {hookError && <p>{hookError?.message}</p>}
+                    {/* {hookError && <p>{hookError?.message}</p>} */}
+                    <ToastContainer />
                 </div>
             </form>
         </div>
