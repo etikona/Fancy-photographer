@@ -11,12 +11,13 @@ const Header = () => {
     return (
         <div>
             <nav>
+                <h4 className='text-white'>Fancy Photographer</h4>
                 <Link className='active' to="/">Home</Link>
                 <Link to="/services">Services</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/signin">Signin</Link>
+                <Link to="/contact">Contact</Link>              
                 <Link to="/blogs">Blogs</Link>
                 <Link to="/about">About Me</Link>
+                <Link to="/signin">Signin</Link>
                 {user ? (
                     <button onClick={() => signOut(auth)}> Logout</button>
                 ) :

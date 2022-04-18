@@ -1,0 +1,11 @@
+.blogs{
+    display: flex;
+    background-color: cornflowerblue;
+    color:blanchedalmond;
+    border-radius: 2px solid gray;
+    padding: 5px;
+    height: 100%;
+}
+.blogs h3{
+    color: indianred;
+}

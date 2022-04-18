@@ -1,9 +1,9 @@
 import React from 'react';
-
+import './Footer.css';
 const Footer = () => {
     return (
-        <div>
-            <h6>Footer</h6>
+        <div className='foot'>
+            Copyright ©- 2022
         </div>
     );
 };

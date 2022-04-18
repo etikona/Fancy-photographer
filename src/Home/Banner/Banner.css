@@ -1,0 +1,10 @@
+.banner{
+    display: flex;
+    background-color: #F582A7;
+}
+.banner.fancy{
+    text-align: center;
+    justify-items: center;
+    position: relative;
+   
+}
